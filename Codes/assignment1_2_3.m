@@ -1,5 +1,5 @@
 %% EE6225 process control assignment 1-2-3
-% Wu Tanghong
+% Rin Misaka
 %% system response
 sys = tf(1.5,[1 11 45 85 78 36],'outputdelay',2) % exp(-2s) - time delay
 t = 0:0.1:20;
@@ -56,20 +56,7 @@ figure
 nyquist(sys,sys_lsmtime,{0.0001,pi/4});
 fprintf("Open loop using LSM - time domain method‘s solution:\nT(time constant): %f\nL(delay): %f\n\n", 1/a1,L);
 
-% phai2 = zeros(len-22,3);
-% 
-% for i=1:len-22
-%    %phai2(i,:) = [-(response(i)+response(i+1))*0.1/2 -A A*t(i)]; % 去掉0不影响
-%    phai2(i,:) = [-trapz(0.1,response(21:i+21)) -A A*t(i+21)]; 
-% end
-% theta = (inv(phai2'*phai2))*phai2'*response(22:len);
-% a1 = theta(1);
-% b1 = theta(3);
-% L = theta(2)/theta(3);
-% 
-% sys_lsmtime = tf(b1,[1 a1],'outputdelay',L) % exp(-2s) - time delay
-% response_lsmtime = step(sys_lsmtime,t);
-% plot(t,response_lsmtime);
+
 %% Open loop using LSM - frequence domain
 fprintf("Open loop using LSM - frequence domain\n")
 A=1;
@@ -157,4 +144,3 @@ fprintf("Open loop using LSM - frequence domain method‘s solution:\nT(time con
 % plot(t,response_lsmfreq);
 % 
 % fprintf("Open loop using LSM - frequence domain method‘s solution:\nT(time constant): %f\nL(delay): %f\n\n", 1/a1,L);
-%% test
