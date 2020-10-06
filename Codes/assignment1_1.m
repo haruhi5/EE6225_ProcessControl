@@ -1,5 +1,5 @@
 %% EE6225 process control assignment 1
-% Wu Tanghong
+% Rin Misaka
 %% system response
 sys = tf(1.5,[1 11 45 85 78 36],'outputdelay',2) % exp(-2s) - time delay
 t = -1:0.1:20;
@@ -140,9 +140,3 @@ xlabel('time'); ylabel('response');
 title('Step Response of area method');
 figure
 nyquist(sys,sys_areamethod,{0.0001,pi/4});
-
-
-%% test
-% s = 1:100;
-% a1 = s.^5 + 11.*s.^4 + 45.*s.^3 + 85.*s.^2 + 78.*s + 36;
-% a2 = (s+3).^2.*(s.^3+5.*s.^2+6.*s+4);
